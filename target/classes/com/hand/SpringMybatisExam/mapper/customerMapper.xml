@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.hand.SpringMybatisExam.mapper.CustomerMapper">
+
+ <insert id="insert" parameterType="Customer">
+     insert into customer(first_name,last_name,email,store_id,address_id,create_date) values(#{first_name},#{last_name},#{email},1,#{address_id},#{create_date})
+ </insert>
+ 
+ <select id="getCustomer" parameterType="int" resultType="Customer">
+    select * from customer where customer_id=#{id}
+ </select>
+ 
+ <select id="getMaxCustomer" resultType="int">
+    select Max(customer_id) from customer 
+ </select>
+ 
+</mapper>
