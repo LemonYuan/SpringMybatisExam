@@ -59,8 +59,11 @@ public class CustomerServiceImpl implements CustomerService{
 		int id=customerMapper.getMaxCustomer();
 		System.out.println("您刚刚输入的id为："+id);
 		Customer customer=customerMapper.getCustomer(id);
+		String address=addressMapper.getAddressById(customer.getAddress_id()).getAddress();
+		
 		System.out.println(customer.getFirst_name());
 		System.out.println(customer.getLast_name());
+		System.out.println(address);
 		System.out.println(customer.getEmail());
 		System.out.println(customer.getCreate_date());
 	}
