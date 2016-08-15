@@ -23,7 +23,7 @@ public class CustomerServiceImpl implements CustomerService{
 	@Autowired
 	AddressMapper addressMapper;
 	
-	
+	@Test
 	public void insert() {
 		Customer customer=new Customer();
         Scanner input=new Scanner(System.in);
@@ -52,20 +52,26 @@ public class CustomerServiceImpl implements CustomerService{
         customer.setStore_id(1);
         customer.setCreate_date(new Date());
         customerMapper.insert(customer);
-	}
-	
-	@Test
-	public void getCustomer() {
-		int id=customerMapper.getMaxCustomer();
+        
+        
+        int id=customerMapper.getMaxCustomer();
 		System.out.println("您刚刚输入的id为："+id);
-		Customer customer=customerMapper.getCustomer(id);
+		Customer customer2=customerMapper.getCustomer(id);
 		String address=addressMapper.getAddressById(customer.getAddress_id()).getAddress();
 		
-		System.out.println(customer.getFirst_name());
-		System.out.println(customer.getLast_name());
+		System.out.println(customer2.getFirst_name());
+		System.out.println(customer2.getLast_name());
 		System.out.println(address);
-		System.out.println(customer.getEmail());
-		System.out.println(customer.getCreate_date());
+		System.out.println(customer2.getEmail());
+		System.out.println(customer2.getCreate_date());
 	}
+	
+   public void deleteCustomer(){
+	   Scanner input=new Scanner(System.in);
+	   System.out.println("请输入要删除的id：");
+	   customerMapper.deleteCustomer(input.nextInt());
+	   System.out.println("删除成功");
+   }
+
 
 }

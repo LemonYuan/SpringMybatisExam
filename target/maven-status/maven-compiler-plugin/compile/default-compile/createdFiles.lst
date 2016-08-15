@@ -1,0 +1,12 @@
+com\hand\SpringMybatisExam\mapper\CustomerMapper.class
+com\hand\SpringMybatisExam\entity\Store.class
+com\hand\SpringMybatisExam\mapper\AddressMapper.class
+com\hand\SpringMybatisExam\service\CustomerServiceImpl.class
+com\hand\SpringMybatisExam\service\CustomerService.class
+com\hand\SpringMybatisExam\entity\Customer.class
+com\hand\SpringMybatisExam\App.class
+com\hand\SpringMybatisExam\App2.class
+com\hand\SpringMybatisExam\entity\Address.class
+com\hand\SpringMybatisExam\aop\Logging.class
+com\hand\SpringMybatisExam\entity\City.class
+com\hand\SpringMybatisExam\entity\Country.class

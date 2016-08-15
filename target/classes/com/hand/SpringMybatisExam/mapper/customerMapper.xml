@@ -15,4 +15,8 @@
     select Max(customer_id) from customer 
  </select>
  
+ <select id="deleteCustomer" resultType="int">
+    delete from customer where customer_id=#{id}
+ </select>
+ 
 </mapper>

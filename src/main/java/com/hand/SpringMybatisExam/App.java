@@ -15,8 +15,7 @@ public class App
     {
     	ApplicationContext context=new ClassPathXmlApplicationContext("ApplicationContext.xml");
     	CustomerService customerService=(CustomerService) context.getBean("customerService");
-//    	customerService.insert();
-//    	System.out.println("插入成功！接下来是第二题！");
-    	customerService.getCustomer();
+    	customerService.insert(); 	
+
     }
 }

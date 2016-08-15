@@ -4,5 +4,5 @@ import com.hand.SpringMybatisExam.entity.Customer;
 
 public interface CustomerService {
      public void insert();
-     public void getCustomer();
+     public void deleteCustomer();
 }
