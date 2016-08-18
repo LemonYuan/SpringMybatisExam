@@ -9,4 +9,4 @@ ApplicationContext在：src\main\resources下
 
 删除：mvn exec:java -Dexec.mainClass="com.hand.SpringMybatisExam.App2" -Dexec.args="arg0 arg1 arg2"  删除失败时，事务会自动rollback
 
-这里是test分支
+test分支
