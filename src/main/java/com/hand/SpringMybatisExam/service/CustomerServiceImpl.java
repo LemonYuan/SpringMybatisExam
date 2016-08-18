@@ -24,7 +24,6 @@ public class CustomerServiceImpl implements CustomerService{
 	 private PlatformTransactionManager transactionManager;
 	@Autowired
 	CustomerMapper customerMapper;
-	
 	@Autowired
 	AddressMapper addressMapper;
 	
@@ -35,13 +34,13 @@ public class CustomerServiceImpl implements CustomerService{
 		try {
 			Customer customer=new Customer();
 			Scanner input=new Scanner(System.in);
-			System.out.println("请输入First Name：");
+			System.out.println("please insert first name：");
 			customer.setFirst_name(input.nextLine());
-			System.out.println("请输入Last Name:");
+			System.out.println("please insert last name:");
 			customer.setLast_name(input.nextLine());
-			System.out.println("请输入email:");
+			System.out.println("enter your email:");
 			customer.setEmail(input.nextLine());
-			System.out.println("请输入address id:");
+			System.out.println("your address id:");
 			boolean address_id_isCorrect=true;
 			while(address_id_isCorrect)
 			{
@@ -54,7 +53,7 @@ public class CustomerServiceImpl implements CustomerService{
 				}
 				else
 				{
-					System.out.println("输入错误，请重新输入：");
+					System.out.println("address id NOT FOUND，please re-enter：");
 				}
 			}
 			customer.setStore_id(1);
@@ -63,7 +62,7 @@ public class CustomerServiceImpl implements CustomerService{
 			
 			
 			int id=customerMapper.getMaxCustomer();
-			System.out.println("您刚刚输入的id为："+id);
+			System.out.println("your id ："+id);
 			Customer customer2=customerMapper.getCustomer(id);
 			String address=addressMapper.getAddressById(customer.getAddress_id()).getAddress();
 			
@@ -73,8 +72,14 @@ public class CustomerServiceImpl implements CustomerService{
 			System.out.println(customer2.getEmail());
 			System.out.println(customer2.getCreate_date());
 		} catch (Exception e) {
-			transactionManager.rollback(status);
-			System.out.println("插入失败，rollback成功");
+			try{
+				transactionManager.rollback(status);
+				System.out.println("inserted failed，rollback  successfully!");
+			}
+			catch(Exception e1)
+			{
+				System.out.println("rollback failed");
+			}
 		}
 	}
 	
